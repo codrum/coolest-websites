@@ -23,11 +23,6 @@
 		<title>Coolest Websites</title>
 	</head>
 	<body>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-			crossorigin="anonymous"
-		></script>
 		<nav
 			class="navbar navbar-expand-lg bg-light"
 			style="margin-bottom: 40px"
@@ -50,23 +45,23 @@
 			<div class="row justify-content-sm-center align-items-start">
 				<div class="col-sm-12 col-lg-9 padding-bottom">
 					<div class="card">
-						<div class="card-header">Top 5 Websites</div>
+						<div class="card-header">The Best Websites</div>
 						<table
 							class="table card-body"
 							style="table-layout: fixed"
+							id="website-list"
 						>
 							<thead>
 								<tr>
-									<th scope="col">#</th>
 									<th scope="col">Title</th>
 									<th scope="col">Description</th>
 									<th scope="col">Rating</th>
 									<th scope="col">Link</th>
+									<th scope="col">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th scope="row">1</th>
+								<!-- <tr>
 									<td>Apple</td>
 									<td class="truncated-table">
 										Apple is a tech company known for their
@@ -83,7 +78,6 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row">2</th>
 									<td>Youtube</td>
 									<td class="truncated-table">
 										Youtube is the world's biggest video
@@ -98,7 +92,6 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row">3</th>
 									<td>Awwwards</td>
 									<td class="truncated-table">
 										Awwwards is a nice looking website.
@@ -112,7 +105,6 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row">4</th>
 									<td>iFunny</td>
 									<td class="truncated-table">very funny.</td>
 									<td>5 stars</td>
@@ -124,7 +116,6 @@
 									</td>
 								</tr>
 								<tr>
-									<th scope="row">5</th>
 									<td>Google</td>
 									<td class="truncated-table">Google it.</td>
 									<td>5 stars</td>
@@ -134,7 +125,7 @@
 											>google.com</a
 										>
 									</td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 					</div>
@@ -142,12 +133,12 @@
 
 				<div class="col-sm-12 col-lg-3 padding-bottom">
 					<div class="card">
-						<div class="card-header">Search Websites</div>
-						<div class="container">
-							<form class="padding-bottom">
+						<div class="card-header">Add a Website</div>
+						<div class="card-body">
+							<form>
 								<div class="form-row">
 									<div
-										class="form-group col-md-6 padding-bottom"
+										class="form-group col-sm-12 padding-bottom"
 									>
 										<label for="inputTitle">Title</label>
 										<input
@@ -158,7 +149,7 @@
 										/>
 									</div>
 									<div
-										class="form-group col-md-6 padding-bottom"
+										class="form-group col-sm-12 padding-bottom"
 									>
 										<label for="inputDescription"
 											>Description</label
@@ -170,6 +161,7 @@
 											placeholder="Description"
 										/>
 									</div>
+
 									<label for="inputRating">Rating</label>
 									<div class="padding-bottom">
 										<div
@@ -180,7 +172,7 @@
 												type="radio"
 												name="inlineRadioOptions"
 												id="inlineRadio1"
-												value="option1"
+												value="1"
 											/>
 											<label
 												class="form-check-label"
@@ -196,7 +188,7 @@
 												type="radio"
 												name="inlineRadioOptions"
 												id="inlineRadio2"
-												value="option2"
+												value="2"
 											/>
 											<label
 												class="form-check-label"
@@ -212,7 +204,7 @@
 												type="radio"
 												name="inlineRadioOptions"
 												id="inlineRadio3"
-												value="option3"
+												value="3"
 											/>
 											<label
 												class="form-check-label"
@@ -228,7 +220,7 @@
 												type="radio"
 												name="inlineRadioOptions"
 												id="inlineRadio4"
-												value="option4"
+												value="4"
 											/>
 											<label
 												class="form-check-label"
@@ -244,7 +236,7 @@
 												type="radio"
 												name="inlineRadioOptions"
 												id="inlineRadio5"
-												value="option5"
+												value="5"
 											/>
 											<label
 												class="form-check-label"
@@ -253,10 +245,25 @@
 											>
 										</div>
 									</div>
+									<div
+										class="form-group col-sm-6 padding-bottom"
+									>
+										<label for="inputUrl">Link</label>
+										<input
+											type="url"
+											class="form-control"
+											id="inputUrl"
+											placeholder="URL.com"
+										/>
+									</div>
 								</div>
 
-								<button type="submit" class="btn btn-primary">
-									Search
+								<button
+									id="add"
+									type="add"
+									class="btn btn-primary"
+								>
+									Add
 								</button>
 							</form>
 						</div>
@@ -300,10 +307,6 @@
 										id="exampleInputEmail1"
 										aria-describedby="emailHelp"
 									/>
-									<!-- <div id="emailHelp" class="form-text">
-									We'll never share your email with anyone
-									else.
-								</div> -->
 								</div>
 								<div class="mb-3">
 									<label
@@ -335,5 +338,12 @@
 				</div>
 			</div>
 		</div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+			crossorigin="anonymous"
+		></script>
+		<script type="module" src="websites.js"></script>
+		<script></script>
 	</body>
 </html>
